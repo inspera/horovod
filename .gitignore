@@ -1,4 +1,6 @@
 *.pyc
+*.pydevproject
+*.project
 .idea
 .eggs
 horovod.egg-info
