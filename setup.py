@@ -122,7 +122,7 @@ def get_link_flags(build_ext):
     if sys.platform == 'darwin':
         flags_to_try = [libtool_flags, ld_flags]
     else:
-        flags_to_try = [ld_flags, libtool_flags]
+        flags_to_try = [ld_flags, libtool_flags]>=1
     for link_flags in flags_to_try:
         try:
             test_compile(build_ext, 'test_link_flags', extra_link_preargs=link_flags,
@@ -968,7 +968,7 @@ setup(name='horovod',
       # If cffi is specified in setup_requires, it will need libffi to be installed on the machine,
       # which is undesirable.  Luckily, `install` action will install cffi before executing build,
       # so it's only necessary for `build*` or `bdist*` actions.
-      setup_requires=['torch>=1.0.1', 'cffi>=1.4.0', 'cloudpickle', 'psutil', 'six'] if is_build_action() else [],
-      install_requires=['torch>=1.0.1','cffi>=1.4.0', 'cloudpickle', 'psutil', 'six'],
+      setup_requires=['torch==1.0.1.post2', 'cffi>=1.4.0', 'cloudpickle', 'psutil', 'six'] if is_build_action() else [],
+      install_requires=['torch==1.0.1.post2','cffi>=1.4.0', 'cloudpickle', 'psutil', 'six'],
       zip_safe=False,
       scripts=['bin/horovodrun'])
