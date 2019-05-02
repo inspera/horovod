@@ -122,7 +122,7 @@ def get_link_flags(build_ext):
     if sys.platform == 'darwin':
         flags_to_try = [libtool_flags, ld_flags]
     else:
-        flags_to_try = [ld_flags, libtool_flags]>=1
+        flags_to_try = [ld_flags, libtool_flags]
     for link_flags in flags_to_try:
         try:
             test_compile(build_ext, 'test_link_flags', extra_link_preargs=link_flags,
